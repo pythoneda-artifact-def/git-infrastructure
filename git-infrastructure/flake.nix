@@ -149,8 +149,8 @@
       let
         org = "pythoneda-artifact";
         repo = "git-infrastructure";
-        version = "0.0.1a2";
-        sha256 = "sha256-lMzbmr3iEGDEbIcGfoyFJmuJoNkdSnD211REIqtaw6w=";
+        version = "0.0.1a3";
+        sha256 = "sha256-Z4e1r/bYPH4NOdqPS5DKDV1C28NbUqECe4jyEQn0K2w=";
         pname = "${org}-${repo}";
         pythonpackage = builtins.replaceStrings [ "-" ] [ "." ] pname;
         package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
