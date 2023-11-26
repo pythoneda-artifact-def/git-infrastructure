@@ -21,6 +21,29 @@
   inputs = rec {
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
     nixos.url = "github:NixOS/nixpkgs/nixos-23.05";
+    pythoneda-shared-artifact-code-events = {
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
+      inputs.pythoneda-shared-pythoneda-banner.follows =
+        "pythoneda-shared-pythoneda-banner";
+      inputs.pythoneda-shared-pythoneda-domain.follows =
+        "pythoneda-shared-pythoneda-domain";
+      url = "github:pythoneda-shared-artifact-def/code-events/0.0.4";
+    };
+    pythoneda-shared-artifact-code-events-infrastructure = {
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixos.follows = "nixos";
+      inputs.pythoneda-shared-artifact-events.follows =
+        "pythoneda-shared-artifact-events";
+      inputs.pythoneda-shared-pythoneda-banner.follows =
+        "pythoneda-shared-pythoneda-banner";
+      inputs.pythoneda-shared-pythoneda-domain.follows =
+        "pythoneda-shared-pythoneda-domain";
+      inputs.pythoneda-shared-pythoneda-infrastructure.follows =
+        "pythoneda-shared-pythoneda-infrastructure";
+      url =
+        "github:pythoneda-shared-artifact-def/code-events-infrastructure/0.0.3";
+    };
     pythoneda-shared-artifact-events = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixos.follows = "nixos";
@@ -90,6 +113,8 @@
         shared = import "${pythoneda-shared-pythoneda-banner}/nix/shared.nix";
         pkgs = import nixos { inherit system; };
         pythoneda-artifact-git-infrastructure-for = { python
+          , pythoneda-shared-artifact-code-events
+          , pythoneda-shared-artifact-code-events-infrastructure
           , pythoneda-shared-artifact-events
           , pythoneda-shared-artifact-events-infrastructure
           , pythoneda-shared-pythoneda-domain
@@ -115,6 +140,10 @@
                 version;
               package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
               dbusNext = python.pkgs.dbus-next.version;
+              pythonedaSharedArtifactCodeEvents =
+                pythoneda-shared-artifact-code-events.version;
+              pythonedaSharedArtifactCodeEventsInfrastructure =
+                pythoneda-shared-artifact-code-events-infrastructure.version;
               pythonedaSharedArtifactEvents =
                 pythoneda-shared-artifact-events.version;
               pythonedaSharedArtifactEventsInfrastructure =
@@ -136,6 +165,8 @@
             nativeBuildInputs = with python.pkgs; [ pip pkgs.jq poetry-core ];
             propagatedBuildInputs = with python.pkgs; [
               dbus-next
+              pythoneda-shared-artifact-code-events
+              pythoneda-shared-artifact-code-events-infrastructure
               pythoneda-shared-artifact-events
               pythoneda-shared-artifact-events-infrastructure
               pythoneda-shared-pythoneda-domain
@@ -242,6 +273,10 @@
           pythoneda-artifact-git-infrastructure-python38 =
             pythoneda-artifact-git-infrastructure-for {
               python = pkgs.python38;
+              pythoneda-shared-artifact-code-events =
+                pythoneda-shared-artifact-code-events.packages.${system}.pythoneda-shared-artifact-code-events-python38;
+              pythoneda-shared-artifact-code-events-infrastructure =
+                pythoneda-shared-artifact-code-events-infrastructure.packages.${system}.pythoneda-shared-artifact-code-events-infrastructure-python38;
               pythoneda-shared-artifact-events =
                 pythoneda-shared-artifact-events.packages.${system}.pythoneda-shared-artifact-events-python38;
               pythoneda-shared-artifact-events-infrastructure =
@@ -254,6 +289,10 @@
           pythoneda-artifact-git-infrastructure-python39 =
             pythoneda-artifact-git-infrastructure-for {
               python = pkgs.python39;
+              pythoneda-shared-artifact-code-events =
+                pythoneda-shared-artifact-code-events.packages.${system}.pythoneda-shared-artifact-code-events-python39;
+              pythoneda-shared-artifact-code-events-infrastructure =
+                pythoneda-shared-artifact-code-events-infrastructure.packages.${system}.pythoneda-shared-artifact-code-events-infrastructure-python39;
               pythoneda-shared-artifact-events =
                 pythoneda-shared-artifact-events.packages.${system}.pythoneda-shared-artifact-events-python39;
               pythoneda-shared-artifact-events-infrastructure =
@@ -266,6 +305,10 @@
           pythoneda-artifact-git-infrastructure-python310 =
             pythoneda-artifact-git-infrastructure-for {
               python = pkgs.python310;
+              pythoneda-shared-artifact-code-events =
+                pythoneda-shared-artifact-code-events.packages.${system}.pythoneda-shared-artifact-code-events-python310;
+              pythoneda-shared-artifact-code-events-infrastructure =
+                pythoneda-shared-artifact-code-events-infrastructure.packages.${system}.pythoneda-shared-artifact-code-events-infrastructure-python310;
               pythoneda-shared-artifact-events =
                 pythoneda-shared-artifact-events.packages.${system}.pythoneda-shared-artifact-events-python310;
               pythoneda-shared-artifact-events-infrastructure =
@@ -278,6 +321,10 @@
           pythoneda-artifact-git-infrastructure-python311 =
             pythoneda-artifact-git-infrastructure-for {
               python = pkgs.python311;
+              pythoneda-shared-artifact-code-events =
+                pythoneda-shared-artifact-code-events.packages.${system}.pythoneda-shared-artifact-code-events-python311;
+              pythoneda-shared-artifact-code-events-infrastructure =
+                pythoneda-shared-artifact-code-events-infrastructure.packages.${system}.pythoneda-shared-artifact-code-events-infrastructure-python311;
               pythoneda-shared-artifact-events =
                 pythoneda-shared-artifact-events.packages.${system}.pythoneda-shared-artifact-events-python311;
               pythoneda-shared-artifact-events-infrastructure =
