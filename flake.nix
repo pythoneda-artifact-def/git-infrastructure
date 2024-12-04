@@ -28,7 +28,7 @@
         "pythoneda-shared-pythonlang-banner";
       inputs.pythoneda-shared-pythonlang-domain.follows =
         "pythoneda-shared-pythonlang-domain";
-      url = "github:pythoneda-shared-artifact-def/code-events/0.0.60";
+      url = "github:pythoneda-shared-artifact-def/code-events/0.0.61";
     };
     pythoneda-shared-artifact-code-events-infrastructure = {
       inputs.flake-utils.follows = "flake-utils";
@@ -40,7 +40,7 @@
       inputs.pythoneda-shared-pythonlang-infrastructure.follows =
         "pythoneda-shared-pythonlang-infrastructure";
       url =
-        "github:pythoneda-shared-artifact-def/code-events-infrastructure/0.0.63";
+        "github:pythoneda-shared-artifact-def/code-events-infrastructure/0.0.64";
     };
     pythoneda-shared-artifact-events = {
       inputs.flake-utils.follows = "flake-utils";
@@ -49,7 +49,7 @@
         "pythoneda-shared-pythonlang-banner";
       inputs.pythoneda-shared-pythonlang-domain.follows =
         "pythoneda-shared-pythonlang-domain";
-      url = "github:pythoneda-shared-artifact-def/events/0.0.69";
+      url = "github:pythoneda-shared-artifact-def/events/0.0.70";
     };
     pythoneda-shared-artifact-events-infrastructure = {
       inputs.flake-utils.follows = "flake-utils";
@@ -62,7 +62,7 @@
         "pythoneda-shared-pythonlang-domain";
       inputs.pythoneda-shared-pythonlang-infrastructure.follows =
         "pythoneda-shared-pythonlang-infrastructure";
-      url = "github:pythoneda-shared-artifact-def/events-infrastructure/0.0.58";
+      url = "github:pythoneda-shared-artifact-def/events-infrastructure/0.0.59";
     };
     pythoneda-shared-pythonlang-banner = {
       inputs.flake-utils.follows = "flake-utils";
@@ -74,7 +74,7 @@
       inputs.nixos.follows = "nixos";
       inputs.pythoneda-shared-pythonlang-banner.follows =
         "pythoneda-shared-pythonlang-banner";
-      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.90";
+      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.92";
     };
     pythoneda-shared-pythonlang-infrastructure = {
       inputs.flake-utils.follows = "flake-utils";
@@ -83,7 +83,7 @@
         "pythoneda-shared-pythonlang-banner";
       inputs.pythoneda-shared-pythonlang-domain.follows =
         "pythoneda-shared-pythonlang-domain";
-      url = "github:pythoneda-shared-pythonlang-def/infrastructure/0.0.68";
+      url = "github:pythoneda-shared-pythonlang-def/infrastructure/0.0.69";
     };
   };
   outputs = inputs:
