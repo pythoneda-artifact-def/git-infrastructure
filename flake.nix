@@ -134,7 +134,7 @@
               authors = builtins.concatStringsSep ","
                 (map (item: ''"${item}"'') maintainers);
               desc = description;
-              inherit homepage pname pythonMajorMinorVersion pythonpackage
+              inherit homepage pname pythonMajorMinorVersion package
                 version;
               package = builtins.replaceStrings [ "." ] [ "/" ] pythonpackage;
               dbusNext = python.pkgs.dbus-next.version;
